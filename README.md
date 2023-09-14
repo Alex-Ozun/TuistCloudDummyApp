@@ -11,12 +11,20 @@ Given the following diagram:
 
 ![graph](graph.png)
 
-If only `FeatureA` is modified on Pull Request, we expect the following:
+SCENARIO 1: Only `FeatureA` is modified, we expect the following:
 
- - App: build and test
- - LibraryA: cached
- - LibraryB: cached
- - FeatureA: build and test
- - FeatureB: cached
+ - `App`: build and test
+ - `LibraryA`: cached and tests skipped
+ - `LibraryB`: cached and tests skipped
+ - `FeatureA`: build and test
+ - `FeatureB`: cached and tests skipped
+ 
+SCENARIO 1: Only `LibraryA` is modified, we expect the following:
+
+ - `App`: build and test
+ - `LibraryA`: build and test
+ - `LibraryB`: cached and tests skipped
+ - `FeatureA`: build and test
+ - `FeatureB`: build and test
 
 We expect `App` to always be built and tested because it depends of all targets.
