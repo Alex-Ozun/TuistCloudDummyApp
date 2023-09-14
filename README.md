@@ -1,7 +1,7 @@
 # Current CI set up:
 
 Run `BuildAndTest.sh` which does `build-for-testing` for `AllInOneTests` scheme and then `test-without-building`. 
-This means that we always run all tests, hence we can't cache any targets because tests of such targets won't build. 
+This means that we always run all tests for all targets. Hence, we can't cache any targets because tests of such targets won't build. 
 
 # Desired CI set up:
 
