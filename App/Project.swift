@@ -11,7 +11,25 @@ let project = Project(
       product: .app,
       bundleId: "io.tuist.App",
       sources: ["Sources/**"],
-      dependencies: []
+      dependencies: [
+        .project(
+          target: "FeatureA",
+          path: .relativeToRoot("Features/FeatureA")
+        ),
+        .project(
+          target: "FeatureB",
+          path: .relativeToRoot("Features/FeatureB")
+        ),
+        .project(
+          target: "LibraryA",
+          path: .relativeToRoot("LibraryA")
+        ),
+        .project(
+          target: "LibraryB",
+          path: .relativeToRoot("LibraryB")
+        ),
+        .external(name: "NonEmpty")
+      ]
     ),
     Target(
       name: name + "Tests",
@@ -19,7 +37,27 @@ let project = Project(
       product: .unitTests,
       bundleId: "io.tuist.App",
       sources: ["Tests/**"],
-      dependencies: []
+      dependencies: [
+        .target(name: name),
+        .project(
+          target: "FeatureA",
+          path: .relativeToRoot("Features/FeatureA")
+        ),
+        .project(
+          target: "FeatureB",
+          path: .relativeToRoot("Features/FeatureB")
+        ),
+        .project(
+          target: "LibraryA",
+          path: .relativeToRoot("LibraryA")
+        ),
+        .project(
+          target: "LibraryB",
+          path: .relativeToRoot("LibraryB")
+        ),
+        .external(name: "NonEmpty"),
+        .xctest
+      ]
     ),
   ]
 )

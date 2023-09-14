@@ -19,7 +19,10 @@ let project = Project(
       product: .unitTests,
       bundleId: "io.tuist.tests." + name,
       sources: ["Tests/**"],
-      dependencies: []
+      dependencies: [
+        .target(name: name),
+        .xctest
+      ]
     ),
   ]
 )

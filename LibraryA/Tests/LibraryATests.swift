@@ -1,8 +1,10 @@
-import Library
-import NonEmpty
+@testable import LibraryA
+import XCTest
 
-public final class FeatureA {
-  public static func hello() {
-    DynamicFramework.hello()
+final class LibraryATests: XCTestCase {
+  func test() {
+    LibraryA.hello()
+    XCTAssertEqual(1, 1)
   }
 }
+

@@ -1,7 +1,18 @@
-import Foundation
+@testable import App
+import FeatureA
+import FeatureB
+import LibraryA
+import LibraryB
+import NonEmpty
+import XCTest
 
-public final class DynamicFramework {
-  public static func hello() {
-    print("Hello, from your dynamic framework")
+final class AppTests: XCTestCase {
+  func test() {
+    FeatureA.hello()
+    FeatureB.hello()
+    LibraryA.hello()
+    LibraryB.hello()
+    XCTAssertEqual(1, 1)
   }
 }
+

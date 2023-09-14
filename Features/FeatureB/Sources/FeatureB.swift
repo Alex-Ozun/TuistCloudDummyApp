@@ -1,7 +1,7 @@
 import LibraryA
 import LibraryB
 
-public final class FeatureA {
+public final class FeatureB {
   public static func hello() {
     LibraryA.hello()
     LibraryB.hello()

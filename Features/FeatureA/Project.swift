@@ -13,10 +13,13 @@ let project = Project(
       sources: ["Sources/**"],
       dependencies: [
         .project(
-          target: "Library",
-          path: .relativeToRoot("Library")
+          target: "LibraryA",
+          path: .relativeToRoot("LibraryA")
         ),
-        .external(name: "NonEmpty")
+        .project(
+          target: "LibraryB",
+          path: .relativeToRoot("LibraryB")
+        ),
       ]
     ),
     Target(
@@ -25,7 +28,18 @@ let project = Project(
       product: .unitTests,
       bundleId: "io.tuist.tests." + name,
       sources: ["Tests/**"],
-      dependencies: []
+      dependencies: [
+        .target(name: name),
+        .project(
+          target: "LibraryA",
+          path: .relativeToRoot("LibraryA")
+        ),
+        .project(
+          target: "LibraryB",
+          path: .relativeToRoot("LibraryB")
+        ),
+        .xctest
+      ]
     ),
   ]
 )
