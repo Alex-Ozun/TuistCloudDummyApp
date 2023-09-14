@@ -5,7 +5,7 @@ This means that we always run all tests for all targets. Hence, we can't cache a
 
 # Desired CI set up:
 
-Only build and test modified targets. 
+Adopt `tuist cache` and `tuist test` APIs to only build and test modified targets. 
 
 GIVEN the following diagram, where CI had cached `LibraryA`, `LibraryB`, `FeatureA`, `FeatureB`:
 
