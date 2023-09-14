@@ -1,8 +1,10 @@
-Steps to repro:
+Current CI set up:
 
-```
-tuist fetch
-tuist cache warm -x FeatureA
-```
+Run `BuildAndTest.sh` which does `build-for-testing` for `AllInOneTests` scheme and then `test-without-building`. 
+This means that we always run all tests, hence we can't cache any targets because tests of such targets won't build. 
 
-Will fail to build with `module not found NonEmpty`
+Desired CI set up:
+
+Only build and test modified targets. For current set up:
+
+![graph](graph.png)
