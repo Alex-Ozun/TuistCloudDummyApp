@@ -7,23 +7,23 @@ This means that we always run all tests for all targets. Hence, we can't cache a
 
 Only build and test modified targets. 
 
-Given the following diagram:
+GIVEN the following diagram, where CI had cached `LibraryA`, `LibraryB`, `FeatureA`, `FeatureB`:
 
 ![graph](graph.png)
 
-SCENARIO 1: Only `FeatureA` is modified, we expect the following:
+SCENARIO 1: For Pull Request were only `FeatureA` is modified, we expect the following:
 
  - `App`: build and test
- - `LibraryA`: cached and tests skipped
- - `LibraryB`: cached and tests skipped
+ - `LibraryA`: use cache and skip tests
+ - `LibraryB`: use cache and skip tests
  - `FeatureA`: build and test
- - `FeatureB`: cached and tests skipped
+ - `FeatureB`: use cache and skip tests
  
-SCENARIO 1: Only `LibraryA` is modified, we expect the following:
+SCENARIO 1: For Pull Request were only `LibraryA` is modified, we expect the following:
 
  - `App`: build and test
  - `LibraryA`: build and test
- - `LibraryB`: cached and tests skipped
+ - `LibraryB`: use cache and skip tests
  - `FeatureA`: build and test
  - `FeatureB`: build and test
 
